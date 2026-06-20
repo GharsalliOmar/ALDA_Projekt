@@ -1,19 +1,31 @@
 public class Sorting {
 
-    // Bubble Sort – by title (A -> Z)
-    static Book[] bubbleSort(Book[] arr) {
+    // Quick Sort – by title (A -> Z)
+    static Book[] quickSort(Book[] arr) {
         Book[] list = arr.clone();
-        int n = list.length;
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                if (list[j].title.compareTo(list[j + 1].title) > 0) {
-                    Book tmp   = list[j];
-                    list[j]    = list[j + 1];
-                    list[j + 1] = tmp;
-                }
+        quickSortHelper(list, 0, list.length - 1);
+        return list;
+    }
+
+    private static void quickSortHelper(Book[] list, int low, int high) {
+        if (low < high) {
+            int p = partition(list, low, high);
+            quickSortHelper(list, low, p - 1);
+            quickSortHelper(list, p + 1, high);
+        }
+    }
+
+    private static int partition(Book[] list, int low, int high) {
+        String pivot = list[high].title;
+        int i = low - 1;
+        for (int j = low; j < high; j++) {
+            if (list[j].title.compareTo(pivot) <= 0) {
+                i++;
+                Book tmp = list[i]; list[i] = list[j]; list[j] = tmp;
             }
         }
-        return list;
+        Book tmp = list[i + 1]; list[i + 1] = list[high]; list[high] = tmp;
+        return i + 1;
     }
 
     // Selection Sort – by author (A -> Z)

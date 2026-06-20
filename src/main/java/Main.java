@@ -16,44 +16,30 @@ public class Main {
             new Book( 6, "Demian",                 "Hermann Hesse"            ),
         };
 
-        // ── Binary Tree ───────────────────────────────────────────────────────
+        // ── Binary Tree
         BinaryTree tree = new BinaryTree();
         for (Book b : books)
             tree.insert(b);
 
-        divider();
-        System.out.println("          BOOK MANAGEMENT SYSTEM");
-        divider();
-
-        System.out.println("\n[Binary Tree] All books (inorder, by ID):");
+        System.out.println("--- Binary Tree: all books (inorder, by ID) ---");
         tree.inorder(tree.root);
 
-        System.out.println("\n[Binary Tree] Search for ID 5:");
+        System.out.println("--- Binary Tree: search ID 5 ---");
         Book found = tree.search(5);
-        System.out.println("  -> " + (found != null ? found : "Not found"));
+        System.out.println(found != null ? found : "Not found");
 
-        // ── Sorting Algorithms ────────────────────────────────────────────────
-        divider();
-        System.out.println("\n[Bubble Sort] Sorted by title (A->Z):");
-        print(Sorting.bubbleSort(books));
+        System.out.println("--- Quick Sort: by title (A->Z) ---");
+        print(Sorting.quickSort(books));
 
-        divider();
-        System.out.println("\n[Selection Sort] Sorted by author (A->Z):");
+        System.out.println("--- Selection Sort: by author (A->Z) ---");
         print(Sorting.selectionSort(books));
 
-        divider();
-        System.out.println("\n[Insertion Sort] Sorted by ID (ascending):");
+        System.out.println("--- Insertion Sort: by ID (ascending) ---");
         print(Sorting.insertionSort(books));
-
-        divider();
     }
 
     static void print(Book[] books) {
         for (Book b : books)
-            System.out.println("  " + b);
-    }
-
-    static void divider() {
-        System.out.println("=".repeat(55));
+            System.out.println(b);
     }
 }
