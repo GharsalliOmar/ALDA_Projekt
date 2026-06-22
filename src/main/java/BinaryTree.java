@@ -10,7 +10,7 @@ public class BinaryTree {
         }
     }
 
-    Node root;
+    private Node root;
 
     void insert(Book book) {
         Node newNode = new Node(book);
@@ -20,7 +20,7 @@ public class BinaryTree {
         }
         Node current = root;
         while (true) {
-            if (book.id < current.book.id) {
+            if (book.getId() < current.book.getId()) {
                 if (current.left == null) {
                     current.left = newNode;
                     return;
@@ -37,7 +37,11 @@ public class BinaryTree {
     }
 
     // Inorder traversal: left -> root -> right (produces ascending ID order)
-    void inorder(Node node) {
+    void inorder() {
+        inorder(root);
+    }
+
+    private void inorder(Node node) {
         if (node == null) return;
         inorder(node.left);
         System.out.println("  " + node.book);
@@ -47,9 +51,9 @@ public class BinaryTree {
     Book search(int id) {
         Node current = root;
         while (current != null) {
-            if (id == current.book.id)
+            if (id == current.book.getId())
                 return current.book;
-            else if (id < current.book.id)
+            else if (id < current.book.getId())
                 current = current.left;
             else
                 current = current.right;

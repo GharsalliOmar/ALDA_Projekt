@@ -1,7 +1,7 @@
 public class Book {
-    int    id;
-    String title;
-    String author;
+    private int    id;
+    private String title;
+    private String author;
 
     Book(int id, String title, String author) {
         this.id     = id;
@@ -9,6 +9,11 @@ public class Book {
         this.author = author;
     }
 
+    int    getId()     { return id; }
+    String getTitle()  { return title; }
+    String getAuthor() { return author; }
+
+    @Override
     public String toString() {
         return "[ID: " + id + "] '" + title + "' by " + author;
     }

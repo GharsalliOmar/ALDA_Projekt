@@ -22,20 +22,29 @@ public class Main {
             tree.insert(b);
 
         System.out.println("--- Binary Tree: all books (inorder, by ID) ---");
-        tree.inorder(tree.root);
+        tree.inorder();
+        System.out.println("");
 
         System.out.println("--- Binary Tree: search ID 5 ---");
         Book found = tree.search(5);
         System.out.println(found != null ? found : "Not found");
+        System.out.println("");
 
-        System.out.println("--- Quick Sort: by title (A->Z) ---");
-        print(Sorting.quickSort(books));
+
+        System.out.println("--- Bubble Sort: by title (A->Z) ---");
+        print(Sorting.bubbleSort(books));
+        System.out.println("");
+
 
         System.out.println("--- Selection Sort: by author (A->Z) ---");
         print(Sorting.selectionSort(books));
+        System.out.println("");
+
 
         System.out.println("--- Insertion Sort: by ID (ascending) ---");
         print(Sorting.insertionSort(books));
+        System.out.println("");
+
     }
 
     static void print(Book[] books) {
