@@ -16,7 +16,7 @@ public class Main {
             new Book( 6, "Demian",                 "Hermann Hesse"            ),
         };
 
-        // ── Binary Tree
+        // Binary Tree
         BinaryTree tree = new BinaryTree();
         for (Book b : books)
             tree.insert(b);
