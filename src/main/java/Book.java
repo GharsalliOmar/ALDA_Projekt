@@ -14,7 +14,7 @@ public class Book {
     String getAuthor() { return author; }
 
     @Override
-    public String toString() {
-        return "[ID: " + id + "] '" + title + "' by " + author;
+    public String toString() {          //überschreibt Objekt-Klass
+        return "[ID: " + id + "] '" + title + "' by " + author;     //Wird automatisch aufgerufen wenn man System.out.println(book)
     }
 }
